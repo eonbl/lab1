@@ -212,8 +212,8 @@ that, zip [1] [2; 3; 4] = [(1, 2); (false, 3); (false, 4)]?
 
 let rec zip (x : int list) (y : int list) : (int * int) list =
   match x, y with
-    [], h :: t -> raise Invalid_argument "Arguments not of same length"
-    | h :: t, [] -> raise Invalid_argument "Arguments not of same length"
+    [], h :: t -> raise (Invalid_argument "Arguments not of same length")
+    | h :: t, [] -> raise (Invalid_argument "Arguments not of same length")
     | [], [] -> []
     | hx :: tx, hy :: ty -> (hx, hy) :: zip tx ty ;;
 
