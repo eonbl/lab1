@@ -323,13 +323,13 @@ two lists to form the result list. Use map2 to reimplement zip.
 ......................................................................*)
 
 let zip_ho (x : int list) (y : int list) : (int * int) list =
-  failwith "sum_ho not implemented" ;;
+  map2 (fun a b -> (a,b)) x y;;
 
 (*......................................................................
 Exercise 14: Define a function evens, using these higher-order
 functional programming techniques, that returns a list of all of the
 even numbers in its argument list.
 ......................................................................*)
-   
+
 let evens : int list -> int list =
-  fun _ -> failwith "evens not implemented" ;;
+  fun lst -> fold_right (fun x a -> if x mod 2 = 0 then x :: a else a) lst [] ;;
